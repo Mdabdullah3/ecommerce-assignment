@@ -14,7 +14,13 @@ export interface NavGroup {
     title: string;
     items: NavItem[];
 }
-
+export interface Product {
+    id: number;
+    name: string;
+    description: string;
+    price: number;
+    image?: string;
+}
 export interface NavItem {
     title: string;
     href: string;
@@ -29,6 +35,7 @@ export interface SharedData {
     ziggy: Config & { location: string };
     sidebarOpen: boolean;
     [key: string]: unknown;
+    products?: Product[];
 }
 
 export interface User {
