@@ -1,16 +1,15 @@
 import ProductCard from '@/components/ProductCard';
-import Navbar from '@/layouts/navbat';
+import AppLayout from '@/layouts/app-layout';
 import { type SharedData } from '@/types';
 import { Head, usePage } from '@inertiajs/react';
 
-export default function Welcome() {
-    const { auth, products = [] } = usePage<SharedData>().props;
+const Welcome = () => {
+    const { products = [] } = usePage<SharedData>().props;
     return (
         <>
             <Head title="Welcome">
             </Head>
             <div className="font-sans">
-                <Navbar auth={auth} />
                 <section
                     className="hero-section min-h-screen pt-20 bg-cover bg-center bg-no-repeat"
                     style={{
@@ -39,13 +38,13 @@ export default function Welcome() {
                                     <div className="flex flex-col sm:flex-row gap-4 pt-4">
                                         <a
                                             href="#"
-                                            className="px-8 py-3 bg-orange-500 text-pearl font-sans text-sm tracking-wider uppercase hover:bg-umber transition-colors duration-300 text-center"
+                                            className="px-8 py-3 bg-black text-white  text-sm tracking-wider uppercase hover:bg-umber transition-colors duration-300 text-center rounded-2xl"
                                         >
                                             View Collection
                                         </a>
                                         <a
                                             href="#"
-                                            className="px-8 py-3 border border-orange-500 text-slate font-sans text-sm tracking-wider uppercase hover:bg-slate/5 transition-colors duration-300 text-center"
+                                            className="px-8 py-3 border border-black text-black text-sm tracking-wider uppercase hover:bg-slate/5 transition-colors duration-300 text-center rounded-2xl"
                                         >
                                             Our Process
                                         </a>
@@ -112,3 +111,6 @@ export default function Welcome() {
         </>
     );
 }
+
+Welcome.layout = (page: React.ReactNode) => <AppLayout children={page} />;
+export default Welcome;

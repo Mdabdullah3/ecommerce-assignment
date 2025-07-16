@@ -6,6 +6,9 @@ use Inertia\Inertia;
 
 Route::get('/', [ProductController::class, 'index'])->name('home');
 
+Route::get('/carts', function () {
+    return Inertia::render('carts');
+})->name('carts');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {

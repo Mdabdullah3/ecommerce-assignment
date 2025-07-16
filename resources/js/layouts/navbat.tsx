@@ -6,9 +6,9 @@ const Navbar = ({ auth }: { auth: Auth }) => {
         <nav className="nav-blur fixed w-full z-50 border-b border-taupe/20 backdrop-blur-md bg-white/60">
             <div className="max-w-7xl mx-auto px-6 uppercase">
                 <div className="flex justify-between items-center h-20">
-                    <a href="#" className="font-display text-xl text-slate">
+                    <Link href="/" className="font-display text-xl text-slate">
                         ETHE<span className="text-orange-500">REAL</span>
-                    </a>
+                    </Link>
                     <div className="hidden md:flex space-x-8">
                         {["Collections", "Craftsmanship", "Journal", "Contact"].map((item) => (
                             <a
