@@ -15,6 +15,9 @@ Route::get('/whishlist', function () {
 Route::get('/checkout', function () {
     return Inertia::render('checkout');
 })->name('checkout');
+Route::get('/order-confirmation', function () {
+    return Inertia::render('order_confirmation');
+})->name('order_confirmation');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {
