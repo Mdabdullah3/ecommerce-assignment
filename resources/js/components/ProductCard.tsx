@@ -1,8 +1,16 @@
+import { useCartStore } from "@/store/useCartStore";
 import { Product } from "@/types";
 import { Eye, Heart } from "lucide-react";
-import React from "react";
-
+import toast from "react-hot-toast";
 const ProductCard = ({ product }: { product: Product }) => {
+    const { addToCart, cart } = useCartStore();
+    console.log(cart);
+    const handleAddToCart = () => {
+        addToCart(product);
+        toast.success(`${product.name} has been added to your cart!`, {
+            duration: 3000,
+        });
+    };
     return (
         <div className="">
             <div className="group [perspective:1000px]">
@@ -51,7 +59,7 @@ const ProductCard = ({ product }: { product: Product }) => {
                         </div>
                         {/* Buttons */}
                         <div className="flex space-x-3">
-                            <button className="transition-all duration-300 transform hover:scale-105 flex-1 bg-black text-white py-2 rounded-xl font-semibold cursor-pointer">
+                            <button onClick={() => handleAddToCart()} className="transition-all duration-300 transform hover:scale-105 flex-1 bg-black text-white py-2 rounded-xl font-semibold cursor-pointer">
                                 Add to Cart
                             </button>
                             <button className="transition-all duration-300 transform hover:scale-104 cursor-pointer px-4 py-2 border border-black rounded-xl">

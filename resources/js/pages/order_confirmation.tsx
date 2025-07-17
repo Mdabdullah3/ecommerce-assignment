@@ -1,8 +1,6 @@
 import React from 'react';
 import { CheckCircle2, ExternalLink } from 'lucide-react';
 import AppLayout from '@/layouts/app-layout';
-
-// Data for the order items to make the component reusable
 const orderItems = [
     {
         image: "https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b?w=400&q=80",
@@ -11,8 +9,6 @@ const orderItems = [
         quantity: 1,
     },
 ];
-
-// SVG for the Visa Icon as it's not in Lucide
 const VisaIcon = () => (
     <svg width="38" height="24" viewBox="0 0 38 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="rounded">
         <path d="M35 0H3C1.3 0 0 1.3 0 3V21C0 22.7 1.3 24 3 24H35C36.7 24 38 22.7 38 21V3C38 1.3 36.7 0 35 0Z" fill="#282D7B" />
@@ -23,9 +19,6 @@ const VisaIcon = () => (
         <path d="M32.8 7.1C32.4 6.9 31.9 6.8 31.3 6.8C30.2 6.8 29.4 7.2 29.4 8C29.4 8.6 29.9 8.9 30.6 9.2L31.1 9.4C32 9.7 32.5 10.1 32.5 10.8C32.5 11.8 31.6 12.3 30.6 12.3C29.9 12.3 29.3 12.1 28.8 11.9L28.5 13.1C29 13.4 29.7 13.5 30.4 13.5C31.9 13.5 33.1 12.9 33.1 11.6C33.1 10.4 31.8 9.9 30.7 9.5L30.2 9.3C29.6 9.1 29.2 8.8 29.2 8.3C29.2 7.7 29.8 7.4 30.5 7.4C31.1 7.4 31.6 7.5 32 7.7L32.2 6.5C32.4 6.6 32.6 6.7 32.8 6.8V7.1Z" fill="white" />
     </svg>
 );
-
-
-// Component for a single item in the order list
 const OrderItem = ({ item }) => (
     <div className="flex items-center justify-between py-4">
         <div className="flex items-center space-x-4">

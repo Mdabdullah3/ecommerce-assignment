@@ -7,7 +7,7 @@ const Welcome = () => {
     const { products = [] } = usePage<SharedData>().props;
     return (
         <>
-            <Head title="Welcome">
+            <Head title="Home" >
             </Head>
             <div className="font-sans">
                 <section

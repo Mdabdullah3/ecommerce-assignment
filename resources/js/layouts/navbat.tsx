@@ -1,7 +1,9 @@
+import { useCartStore } from '@/store/useCartStore';
 import { Auth } from '@/types';
 import { Link } from '@inertiajs/react';
 import { Heart, ShoppingCart, UserIcon } from 'lucide-react';
 const Navbar = ({ auth }: { auth: Auth }) => {
+    const { cart } = useCartStore()
     return (
         <nav className="nav-blur fixed w-full z-50 border-b border-taupe/20 backdrop-blur-md bg-white/60">
             <div className="max-w-7xl mx-auto px-6 uppercase">
@@ -24,10 +26,10 @@ const Navbar = ({ auth }: { auth: Auth }) => {
                         <Link href="/wishlist" className="hover:text-primary">
                             <Heart className="w-5 h-5" />
                         </Link>
-                        <Link href="/cart" className="hover:text-primary relative">
+                        <Link href="/carts" className="hover:text-primary relative">
                             <ShoppingCart className="w-5 h-5" />
                             {/* Example badge */}
-                            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] rounded-full w-4 h-4 flex items-center justify-center">2</span>
+                            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] rounded-full w-4 h-4 flex items-center justify-center">{cart?.length}</span>
                         </Link>
                         {auth.user ? (
                             <Link

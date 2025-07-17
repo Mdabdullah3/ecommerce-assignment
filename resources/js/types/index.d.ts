@@ -15,6 +15,8 @@ export interface NavGroup {
     items: NavItem[];
 }
 export interface Product {
+    _id: string;
+    _id: string;
     id: number;
     name: string;
     description: string;
