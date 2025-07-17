@@ -12,6 +12,9 @@ Route::get('/carts', function () {
 Route::get('/whishlist', function () {
     return Inertia::render('wishlist');
 })->name('wishlist');
+Route::get('/checkout', function () {
+    return Inertia::render('checkout');
+})->name('checkout');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {
