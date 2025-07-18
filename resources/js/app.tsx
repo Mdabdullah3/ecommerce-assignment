@@ -15,7 +15,7 @@ createInertiaApp({
         root.render(
             <>
                 <App {...props} />
-                <Toaster position="top-center" reverseOrder={false} />
+                <Toaster position="top-center" reverseOrder={false} toastOptions={{ duration: 5000 }} />
             </>
         );
     },

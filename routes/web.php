@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -15,9 +16,12 @@ Route::get('/whishlist', function () {
 Route::get('/checkout', function () {
     return Inertia::render('checkout');
 })->name('checkout');
-Route::get('/order-confirmation', function () {
-    return Inertia::render('order_confirmation');
-})->name('order_confirmation');
+
+Route::get('/order-confirmation/{order}', [OrderController::class, 'showConfirmation'])->name('order-confirmation');
+
+Route::get('/admin/orders', [OrderController::class, 'index'])->name('admin.orders');
+Route::put('/admin/orders/{id}/status', [OrderController::class, 'updateStatus'])->name('admin.orders.updateStatus');
+Route::post('/orders', [OrderController::class, 'store']);
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {
