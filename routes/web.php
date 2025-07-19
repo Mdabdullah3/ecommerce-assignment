@@ -19,8 +19,7 @@ Route::get('/checkout', function () {
 
 Route::get('/order-confirmation/{order}', [OrderController::class, 'showConfirmation'])->name('order-confirmation');
 
-Route::get('/admin/orders', [OrderController::class, 'index'])->name('admin.orders');
-Route::put('/admin/orders/{id}/status', [OrderController::class, 'updateStatus'])->name('admin.orders.updateStatus');
+Route::put('/orders/{id}/status', [OrderController::class, 'updateStatus'])->name('orders.updateStatus');
 Route::post('/orders', [OrderController::class, 'store']);
 Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
 Route::middleware(['auth', 'verified'])->group(function () {

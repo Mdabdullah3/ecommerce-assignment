@@ -66,9 +66,11 @@ class OrderController extends Controller
     }
     public function updateStatus(Request $request, $id)
     {
-        $request->validate(['status' => 'required|in:Pending,Processing,Delivered']);
+        $request->validate([
+            'status' => 'required|in:Pending,Processing,Delivered'
+        ]);
         $order = Order::findOrFail($id);
         $order->update(['status' => $request->status]);
-        return redirect()->back()->with('success', 'Order status updated!');
+        return response()->json(['message' => 'Order status updated']);
     }
 }
