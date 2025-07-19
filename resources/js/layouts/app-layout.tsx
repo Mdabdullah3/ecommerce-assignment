@@ -1,12 +1,11 @@
 import { SharedData, type BreadcrumbItem } from '@/types';
 import { type ReactNode } from 'react';
-import Navbar from './navbat';
+import Navbar from './navbar';
 import { usePage } from '@inertiajs/react';
 interface AppLayoutProps {
     children: ReactNode;
     breadcrumbs?: BreadcrumbItem[];
 }
-
 export default function AppLayout({ children }: AppLayoutProps) {
     const { auth } = usePage<SharedData>().props;
     return (
