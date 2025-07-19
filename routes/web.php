@@ -22,7 +22,7 @@ Route::get('/order-confirmation/{order}', [OrderController::class, 'showConfirma
 Route::get('/admin/orders', [OrderController::class, 'index'])->name('admin.orders');
 Route::put('/admin/orders/{id}/status', [OrderController::class, 'updateStatus'])->name('admin.orders.updateStatus');
 Route::post('/orders', [OrderController::class, 'store']);
-
+Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', function () {
         return Inertia::render('dashboard');

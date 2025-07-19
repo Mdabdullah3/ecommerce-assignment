@@ -51,7 +51,7 @@ class OrderController extends Controller
     public function index()
     {
         $orders = Order::with('items')->latest()->get();
-        return Inertia::render('Admin/Orders', [
+        return Inertia::render('orders/index', [
             'orders' => $orders
         ]);
     }
