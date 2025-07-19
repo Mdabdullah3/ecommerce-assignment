@@ -1,7 +1,7 @@
 import { useCartStore } from '@/store/useCartStore';
 import { Auth } from '@/types';
 import { Link } from '@inertiajs/react';
-import { Heart, ShoppingCart, UserIcon } from 'lucide-react';
+import { Heart, ShoppingCart } from 'lucide-react';
 const Navbar = ({ auth }: { auth: Auth }) => {
     const { cart } = useCartStore()
     return (
@@ -16,7 +16,7 @@ const Navbar = ({ auth }: { auth: Auth }) => {
                             <a
                                 key={item}
                                 href="#"
-                                className="text-sm  tracking-wider text-slate hover:text-accent transition-colors"
+                                className="text-sm  tracking-wider text-slate hover:text-orange-600 transition-colors"
                             >
                                 {item}
                             </a>
@@ -36,7 +36,8 @@ const Navbar = ({ auth }: { auth: Auth }) => {
                                 href={route('dashboard')}
                                 className="hover:text-primary"
                             >
-                                <UserIcon className="w-5 h-5" />
+
+                                <p className="text-sm  tracking-wider text-slate hover:text-orange-600 transition-colors">Dashboard</p>
                             </Link>
                         ) : (
                             <>

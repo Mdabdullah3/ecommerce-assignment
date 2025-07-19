@@ -55,7 +55,7 @@ const ProductCard = ({ product }: { product: Product }) => {
                             <div className="text-lg font-semibold text-black">
                                 € {product?.price}
                             </div>
-                            <span className="bg-black text-white text-xs px-2 py-1 rounded-full">25% OFF</span>
+                            {/* <span className="bg-black text-white text-xs px-2 py-1 rounded-full">25% OFF</span> */}
                         </div>
                         {/* Buttons */}
                         <div className="flex space-x-3">

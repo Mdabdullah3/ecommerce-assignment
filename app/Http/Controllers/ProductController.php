@@ -18,7 +18,7 @@ class ProductController extends Controller
     }
     public function create(): Response
     {
-        return Inertia::render('Products/Create');
+        return Inertia::render('products/create');
     }
     public function store(Request $request)
     {
@@ -29,6 +29,8 @@ class ProductController extends Controller
             'image' => 'nullable|string',
         ]);
         Product::create($validated);
-        return redirect()->route('dashboard')->with('success', 'Product added successfully.');
+        return response()->json([
+            'message' => 'Product created successfully!'
+        ], 201);
     }
 }

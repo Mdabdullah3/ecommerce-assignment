@@ -45,13 +45,14 @@ const OrderItem = ({ item }: { item: OrderItemType }) => (
             </div>
         </div>
         <div className="text-right">
-            <p className="font-semibold text-gray-800">${Number(item.price).toFixed(2)}</p>
+            <p className="font-semibold text-gray-800">€{Number(item.price).toFixed(2)}</p>
             <p className="text-sm text-gray-500">Qty: {item.quantity}</p>
         </div>
     </div>
 );
 
 const OrderConfirmation = ({ order }: OrderConfirmationProps) => {
+    console.log(order);
     return (
         <>
             <Head title={`Order Confirmation - ${order.customer_name}`} />
@@ -67,14 +68,11 @@ const OrderConfirmation = ({ order }: OrderConfirmationProps) => {
                             </button>
                         </Link>
                     </div>
-
-                    {/* Order Details Card */}
                     <div className="overflow-hidden rounded-xl bg-white shadow-lg">
-                        {/* Green Info Bar */}
                         <div className="flex flex-wrap items-center justify-between gap-4 bg-[#225F4D] p-4 text-white">
                             <div className="flex flex-col sm:flex-row sm:items-center sm:gap-6">
                                 <p className="text-sm font-medium">
-                                    Order ID : <span className="font-bold">{order.id}</span>
+                                    Order ID : <span className="font-bold">{order.id}2325#</span>
                                 </p>
                                 <p className="text-sm">
                                     Order Date : <span className="font-normal">{new Date(order.created_at).toLocaleDateString()}</span>
@@ -106,11 +104,21 @@ const OrderConfirmation = ({ order }: OrderConfirmationProps) => {
 
                         {/* Order Summary Section */}
                         <div className="bg-slate-50/70 p-6">
-                            <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+                            <div className="grid grid-cols-1 gap-6 md:grid-cols-4">
                                 {/* Payment Method */}
                                 <div>
                                     <h3 className="mb-2 font-semibold text-gray-800">Payment method</h3>
                                     <p className="text-sm text-gray-600">{order.payment_method}</p>
+                                </div>
+                                <div>
+                                    <h3 className="mb-2 font-semibold text-gray-800">Status</h3>
+                                    <p className="text-sm text-gray-600">
+                                        {order.status === 'Delivered' ? (
+                                            <span className="text-green-600 font-semibold">Delivered</span>
+                                        ) : (
+                                            <span className="text-yellow-600 font-semibold">Pending</span>
+                                        )}
+                                    </p>
                                 </div>
 
                                 {/* Address */}
@@ -146,13 +154,13 @@ const OrderConfirmation = ({ order }: OrderConfirmationProps) => {
                                         {/* You might want to calculate these dynamically or pass from props */}
                                         <div className="flex justify-between text-sm text-gray-600">
                                             <p>Item cost</p>
-                                            <p>${order.items.reduce((sum, i) => sum + Number(i.subtotal), 0).toFixed(2)}</p>
+                                            <p>€{order.items.reduce((sum, i) => sum + Number(i.subtotal), 0).toFixed(2)}</p>
                                         </div>
 
                                         <div className="my-2 border-t border-gray-200"></div>
                                         <div className="flex justify-between text-lg font-bold text-gray-800">
                                             <p>Total Cost</p>
-                                            <p>${Number(order.total).toFixed(2)}</p>
+                                            <p>€{Number(order.total).toFixed(2)}</p>
                                         </div>
                                     </div>
                                 </div>

@@ -19,9 +19,8 @@ const Checkout = () => {
     });
 
     const subtotal = cart.reduce((sum, product) => sum + (product.price * product.quantity), 0);
-    const shippingCost = 4.99;
-    const tax = subtotal * 0.2;
-    const total = subtotal + shippingCost + tax;
+    const shippingCost = 0;
+    const total = subtotal + shippingCost ;
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setForm({ ...form, [e.target.name]: e.target.value });
     };
@@ -85,10 +84,7 @@ const Checkout = () => {
                                         <span className="text-sm text-gray-600">Shipping</span>
                                         <span className="text-sm font-medium text-gray-900">€{shippingCost.toFixed(2)}</span>
                                     </div>
-                                    <div className="flex justify-between">
-                                        <span className="text-sm text-gray-600">Tax (VAT 20%)</span>
-                                        <span className="text-sm font-medium text-gray-900">€{tax.toFixed(2)}</span>
-                                    </div>
+                                   
                                     <div className="flex justify-between border-t border-gray-200 pt-3">
                                         <span className="text-base font-medium text-gray-900">Total</span>
                                         <span className="text-base font-bold text-gray-900">€{total.toFixed(2)}</span>
