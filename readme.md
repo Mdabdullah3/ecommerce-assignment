@@ -85,7 +85,14 @@ DB_PASSWORD=
 
 ```
 
-5. Database Setup
+5. Generate application key
+
+```
+php artisan key:generate
+
+```
+
+6. Database Setup
 
 - Start your XAMPP/WAMP MySQL server
 
@@ -100,7 +107,7 @@ php artisan db:seed --class=ProductSeeder
 
 ```
 
-6. Start Development Server
+7. Start Development Server
 
 ```
 composer run dev
