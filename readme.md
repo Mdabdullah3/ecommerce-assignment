@@ -4,6 +4,9 @@
 
 This project is a full-stack e-commerce application built with Laravel as the backend, ReactJS as the frontend (using Inertia.js), and MySQL as the database. The system combines the power of Laravel and React into a single unified application through Inertia.js, providing a seamless development experience.
 
+<img src="/public/home.png" width="800" alt="Home Page Screenshot" />
+
+
 ### Key Features
 
 - Integrated Stack: Single application using Inertia.js to bridge Laravel and React
