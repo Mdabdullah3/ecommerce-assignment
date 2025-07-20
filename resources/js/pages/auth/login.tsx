@@ -1,7 +1,6 @@
 import { Head, useForm } from '@inertiajs/react';
 import { LoaderCircle } from 'lucide-react';
 import { FormEventHandler } from 'react';
-
 import InputError from '@/components/input-error';
 import TextLink from '@/components/text-link';
 import { Button } from '@/components/ui/button';
@@ -10,18 +9,16 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import AuthLayout from '@/layouts/auth-layout';
 import AppLayout from '@/layouts/app-layout';
-
+import toast from 'react-hot-toast';
 type LoginForm = {
     email: string;
     password: string;
     remember: boolean;
 };
-
 interface LoginProps {
     status?: string;
     canResetPassword: boolean;
 }
-
 const Login = ({ status, canResetPassword }: LoginProps) => {
     const { data, setData, post, processing, errors, reset } = useForm<Required<LoginForm>>({
         email: '',
@@ -33,6 +30,12 @@ const Login = ({ status, canResetPassword }: LoginProps) => {
         e.preventDefault();
         post(route('login'), {
             onFinish: () => reset('password'),
+            onSuccess: () => {
+                toast.success("Login successful");
+            },
+            onError: () => {
+                toast.error("Login failed. Please check your credentials and try again.");
+            }
         });
     };
 

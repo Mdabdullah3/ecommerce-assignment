@@ -4,34 +4,10 @@ import { Head } from '@inertiajs/react';
 import AppSidebarLayout from '@/layouts/app/app-sidebar-layout';
 import type { ReactNode } from 'react';
 import toast from 'react-hot-toast';
-
-type OrderItem = {
-    id: number;
-    product_id: number;
-    product_name: string;
-    price: number;
-    quantity: number;
-    subtotal: number;
-    image?: string;
-};
-
-type Order = {
-    id: number;
-    customer_name: string;
-    email: string;
-    phone: string;
-    address: string;
-    total: number;
-    payment_method: string;
-    status: 'Pending' | 'Processing' | 'Delivered';
-    items: OrderItem[];
-    created_at: string;
-};
-
+import { Order } from '@/types';
 interface Props {
     orders: Order[];
 }
-
 const OrderPage = ({ orders }: Props) => {
     const [localOrders, setLocalOrders] = useState<Order[]>(orders);
     const handleStatusChange = async (orderId: number, newStatus: string) => {
@@ -42,14 +18,12 @@ const OrderPage = ({ orders }: Props) => {
                     order.id === orderId ? { ...order, status: newStatus as Order['status'] } : order
                 )
             );
-
             toast.success(`Order status updated to ${newStatus}`);
         } catch (error) {
             toast.error('Failed to update order status');
             console.error(error);
         }
     };
-
     return (
         <>
             <Head title="Orders" />
@@ -108,7 +82,6 @@ const OrderPage = ({ orders }: Props) => {
         </>
     );
 };
-
 OrderPage.layout = (page: ReactNode) => (
     <AppSidebarLayout breadcrumbs={[{ title: 'Orders', href: '/orders' }]}>
         {page}

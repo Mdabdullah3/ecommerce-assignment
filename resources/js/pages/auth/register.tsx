@@ -9,6 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import AuthLayout from '@/layouts/auth-layout';
 import AppLayout from '@/layouts/app-layout';
+import toast from 'react-hot-toast';
 
 type RegisterForm = {
     name: string;
@@ -29,6 +30,12 @@ const Register = () => {
         e.preventDefault();
         post(route('register'), {
             onFinish: () => reset('password', 'password_confirmation'),
+            onSuccess: () => {
+                toast.success("Registration successful");
+            },
+            onError: () => {
+                toast.error("Registration failed. Please check your details and try again.");
+            }
         });
     };
 

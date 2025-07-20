@@ -50,3 +50,25 @@ export interface User {
     updated_at: string;
     [key: string]: unknown;
 }
+export type OrderItem = {
+    id: number;
+    product_id: number;
+    product_name: string;
+    price: number;
+    quantity: number;
+    subtotal: number;
+    image?: string;
+};
+
+export type Order = {
+    id: number;
+    customer_name: string;
+    email: string;
+    phone: string;
+    address: string;
+    total: number;
+    payment_method: string;
+    status: 'Pending' | 'Processing' | 'Delivered';
+    items: OrderItem[];
+    created_at: string;
+};

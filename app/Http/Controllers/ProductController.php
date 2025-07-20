@@ -29,8 +29,8 @@ class ProductController extends Controller
             'image' => 'nullable|string',
         ]);
         Product::create($validated);
-        return response()->json([
-            'message' => 'Product created successfully!'
-        ], 201);
+        return Inertia::render('products/create', [
+            'success' => 'Product created successfully!'
+        ]);
     }
 }

@@ -125,21 +125,9 @@ const Checkout = () => {
                                                     onChange={() => setPaymentMethod('cash-on-delivery')}
                                                 />
                                                 <Label htmlFor="cash-on-delivery">Cash on Delivery</Label>
-                                            </div>
-
-                                            <div className="flex items-center space-x-3">
-                                                <Checkbox
-                                                    id="paypal"
-                                                    name="payment"
-                                                    checked={paymentMethod === 'paypal'}
-                                                    onChange={() => setPaymentMethod('paypal')}
-                                                />
-                                                <Label htmlFor="paypal">Paypal</Label>
-                                            </div>
-
+                                            </div>                               
                                             <Button className="w-full mt-6" type="submit">Place Order</Button>
                                         </div>
-
                                     </div>
                                 </form>
                             </div>
