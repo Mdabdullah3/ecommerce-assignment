@@ -53,13 +53,16 @@ Prerequisites
 
 ```
 git clone https://github.com/Mdabdullah3/ecommerce-assignment.git
+
 cd ecommerce-assignment
+
 ```
 
 2. Install PHP dependencies
 
 ```
 composer install
+
 ```
 
 3. Install JavaScript dependencies
@@ -86,12 +89,13 @@ DB_PASSWORD=
 
 - Start your XAMPP/WAMP MySQL server
 
-- Create a database named ecommerce_inertia
+- Create a database named ecommerce_db
 
 - Run migrations and seeders:
 
 ```
 php artisan migrate
+
 php artisan db:seed --class=ProductSeeder
 
 ```
